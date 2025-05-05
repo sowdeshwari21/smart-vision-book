@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import customFetch from "../utils/customfetch";
 
 // Import PDF.js from CDN
 const pdfjsLib = window["pdfjs-dist/build/pdf"];
@@ -176,8 +177,8 @@ const PdfLibrary = () => {
         let textToRead = text;
         if (currentLanguage) {
           try {
-            const response = await axios.post(
-              `http://localhost:5000/pdf/translate`,
+            const response = await customFetch.post(
+              `/pdf/translate`,
               {
                 from_text: text,
                 to_text:
@@ -355,7 +356,7 @@ const PdfLibrary = () => {
       const langCode = languageMap[targetLang.toLowerCase()] || targetLang;
       console.log("Translating to:", langCode);
 
-      const response = await axios.post("http://localhost:5000/pdf/translate", {
+      const response = await customFetch.post("/pdf/translate", {
         from_text: extractedText,
         to_text: langCode,
       });
@@ -411,8 +412,8 @@ const PdfLibrary = () => {
       console.log("Searching for PDF:", pdfName);
 
       try {
-        const response = await axios.get(
-          `http://localhost:5000/pdf/search/${pdfName}`
+        const response = await customFetch.get(
+          `/pdf/search/${pdfName}`
         );
         if (response.data && response.data.length > 0) {
           // Open the first matching PDF
@@ -459,8 +460,8 @@ const PdfLibrary = () => {
 
       // Call translation with the extracted text
       try {
-        const response = await axios.post(
-          "http://localhost:5000/pdf/translate",
+        const response = await customFetch.post(
+          "/pdf/translate",
           {
             from_text: textToTranslate,
             to_text: languageMap[targetLang.toLowerCase()] || targetLang,
@@ -568,7 +569,7 @@ const PdfLibrary = () => {
   const fetchAllPDFs = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/pdf/all");
+      const response = await customFetch.get("/pdf/all");
       setPdfs(response.data);
     } catch (err) {
       setError("Failed to fetch PDFs");
@@ -627,8 +628,8 @@ const PdfLibrary = () => {
         const formData = new FormData();
         formData.append("pdf", file);
 
-        const response = await axios.post(
-          "http://localhost:5000/pdf/upload",
+        const response = await customFetch.post(
+          "/pdf/upload",
           formData,
           {
             headers: {
@@ -703,7 +704,7 @@ const PdfLibrary = () => {
   const handleDeletePDF = async (pdfId) => {
     if (window.confirm("Are you sure you want to delete this PDF?")) {
       try {
-        await axios.delete(`http://localhost:5000/pdf/delete/${pdfId}`);
+        await customFetch.delete(`/pdf/delete/${pdfId}`);
         // Refresh the PDF list
         await fetchAllPDFs();
         // If the deleted PDF was selected, clear the selection
@@ -725,8 +726,8 @@ const PdfLibrary = () => {
     }
 
     try {
-      const response = await axios.put(
-        `http://localhost:5000/pdf/update/${pdfId}`,
+      const response = await customFetch.put(
+        `/pdf/update/${pdfId}`,
         {
           originalName: newPdfName,
         }
@@ -784,7 +785,7 @@ const PdfLibrary = () => {
       }
 
       // Call the summarization endpoint
-      const response = await axios.post("http://localhost:5000/pdf/summarize", {
+      const response = await customFetch.post("/pdf/summarize", {
         text: textToSummarize,
       });
 
@@ -806,8 +807,8 @@ const PdfLibrary = () => {
       let detectedSourceLanguage = null;
       if (currentLanguage) {
         try {
-          const translationResponse = await axios.post(
-            "http://localhost:5000/pdf/translate",
+          const translationResponse = await customFetch.post(
+            "/pdf/translate",
             {
               from_text: summary,
               to_text:
