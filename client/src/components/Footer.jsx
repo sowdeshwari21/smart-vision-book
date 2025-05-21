@@ -13,8 +13,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <motion.div className="mb-4 md:mb-0" whileHover={{ scale: 1.05 }}>
-            <p className="text-lg font-semibold">PDF Voice Commander</p>
-            <p className="text-sm text-purple-200">Transform your PDFs into voice with ease</p>
+            <p className="text-lg font-semibold">Book Reader</p>
+            <p className="text-sm text-purple-200">Transform your Book into voice</p>
           </motion.div>
 
           <div className="flex items-center space-x-4">
@@ -39,7 +39,7 @@ const Footer = () => {
 
         <div className="mt-6 pt-6 border-t border-purple-700 text-center">
           <div className="flex items-center justify-center text-sm">
-            Made with
+            Smart Vision
             <motion.div
               animate={{
                 scale: [1, 1.2, 1],
@@ -53,7 +53,7 @@ const Footer = () => {
             >
               <Heart size={16} fill="currentColor" />
             </motion.div>
-            &copy; {new Date().getFullYear()} PDF Voice Commander
+            &copy; {new Date().getFullYear()} Book Voice Commander
           </div>
         </div>
       </div>

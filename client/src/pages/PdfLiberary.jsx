@@ -896,7 +896,7 @@ const PdfLibrary = () => {
                 <path d="M12 15v-6"></path>
                 <path d="M15 15v-2"></path>
               </svg>
-              Accessible PDF Reader
+              Accessible Book Reader
             </h1>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -1153,7 +1153,7 @@ const PdfLibrary = () => {
                   >
                     <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
                   </svg>
-                  Your PDF Library
+                  Your Book Library
                 </h2>
               </div>
               <div className="p-5">
@@ -1372,7 +1372,7 @@ const PdfLibrary = () => {
                       start reading
                     </span>
                     <span className="text-gray-700">
-                      Begin reading the current PDF
+                      Begin reading the current Book
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -1615,10 +1615,10 @@ const PdfLibrary = () => {
                     <line x1="9" y1="15" x2="15" y2="15"></line>
                   </svg>
                   <h3 className="mt-4 text-xl font-semibold text-gray-700">
-                    No PDF Selected
+                    No Book Selected
                   </h3>
                   <p className="mt-2 text-gray-600">
-                    Select a PDF from your library to view it here
+                    Select a Book from your library to view it here
                   </p>
                 </div>
               </section>
@@ -2018,7 +2018,7 @@ const PdfLibrary = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm">
-              Accessible PDF Reader - Designed for users with visual impairments
+              Accessible Book Reader - Designed for users with visual impairments
             </p>
             <div className="flex items-center gap-4">
               <button

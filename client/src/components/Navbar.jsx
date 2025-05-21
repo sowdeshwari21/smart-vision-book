@@ -27,7 +27,7 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                PDF Voice Commander
+                SMART VISION BOOK
               </motion.h1>
               <p className="text-xs text-gray-500">Transform PDFs into Voice</p>
             </div>

@@ -12,7 +12,8 @@
     "build-client": "cd client && npm install && npm run build && cd .. && npm run move-dist",
     "move-dist-windows": "if exist public rmdir /s /q public && mkdir public && xcopy /s /e /y client\\dist\\* public\\",
     "move-dist-unix": "rm -rf public && mkdir public && cp -r client/dist/* public/",
-    "move-dist": "node -e \"if (process.platform === 'win32') { require('child_process').execSync('npm run move-dist-windows', {stdio: 'inherit'}) } else { require('child_process').execSync('npm run move-dist-unix', {stdio: 'inherit'}) }\""
+    "move-dist": "node -e \"if (process.platform === 'win32') { require('child_process').execSync('npm run move-dist-windows', {stdio: 'inherit'}) } else { require('child_process').execSync('npm run move-dist-unix', {stdio: 'inherit'}) }\"",
+    "setup": "mernfinity"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.21.2",
     "google-translate-api-x": "^10.7.2",
+    "mernfinity": "^2.0.6",
     "mongoose": "^7.0.0",
     "multer": "^1.4.5-lts.2",
     "node-fetch": "^3.3.2",
